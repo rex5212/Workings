@@ -20,7 +20,7 @@
 ## Agora fala para o git qual repositorio que ele ira  coloca os seus codigos
     git remote add origin <Code of Repo. Git>
     
-## Depois troca o nome da Branch master para main, que e a forma coomum e mais utilizada, podendo se
+## Depois troca o nome da Branch master para main, que e a forma comum e mais utilizada, podendo se
     git branch -M main
     git branch -m <nome atual> <nome desejado>
     
