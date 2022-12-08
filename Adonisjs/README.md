@@ -25,8 +25,8 @@
     npm i @adonisjs/auth
     
 ## Configuração do Autentificado
-   node ace configure @adonisjs/auth
+    node ace configure @adonisjs/auth
    
 ## Instalar a biblioteca Hash
-   npm i phc-argon2
+    npm i phc-argon2
    
