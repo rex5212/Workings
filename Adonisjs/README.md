@@ -56,3 +56,5 @@
 ## Reinicia e criar/iniciar a(s) Tabela(s) juntamente com o carregamento da seeders
     node ace migration:refresh -seed
   
+# Mais Comandos
+    node ace make -h
