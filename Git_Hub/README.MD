@@ -49,6 +49,8 @@
 ## Mostra o Historico de commit
     git log
 
+## Mostra o ultimo commit que foi executado
+    git commit -amend
 
 
 git commit -a -m "Update file with a new line" or git commit -am "Update file with a new line"
