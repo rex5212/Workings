@@ -56,3 +56,5 @@
 git commit -a -m "Update file with a new line" or git commit -am "Update file with a new line"
 $ git rm --cached <file>
 $ git checkout -b <nome da nova branch>
+touch <arquivo>
+start notepad <arquivo>
