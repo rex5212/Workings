@@ -58,3 +58,5 @@
   
 # Mais Comandos
     node ace make -h
+
+ node ace serve --watch
