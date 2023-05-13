@@ -1,4 +1,4 @@
-# Git_Work Git - GitHub
+ # Git_Work Git - GitHub
 
 ## Para iniciar o arquivo em um repositorio Git
     git init
@@ -27,9 +27,8 @@
 ## Logo depois se deve da o push para o Repo. Git, podendo se
     git push
     git push -u origin main
-
-## Ao fazer isso vai pedi para loga na sua conta do Repo. Git
-
+## Ao fazer isso vai pedi para loga na sua conta do Repo. Git, logo depois caso faça uma mudança em outra maquina e quiser atualiza a sua de um
+    git pull
 
 # Outras Funções Git
 
@@ -52,6 +51,8 @@
 ## Mostra o ultimo commit que foi executado
     git commit -amend
 
+## Da o Clone é suas variaveis
+    git clone <repositorio>
 
 git commit -a -m "Update file with a new line" or git commit -am "Update file with a new line"
 $ git rm --cached <file>

@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1671379048 source:c:\users\usuário1\onedrive\Área de trabalho\cbegin\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1671379388 source:c:\users\usuário1\onedrive\Área de trabalho\cbegin\test.c
+	<stdio.h>
+	<string.h>
+
+1671380070 source:c:\users\usuário1\onedrive\Área de trabalho\cprojectsbegin\cbegin\test.c
+	<stdio.h>
+	<string.h>
+
+1671407501 source:c:\users\usuário1\onedrive\Área de trabalho\cprojectsbegin\cbegin\main.c
+	<stdio.h>
+	<stdlib.h>
+
