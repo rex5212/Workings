@@ -10,6 +10,7 @@ const Cabecalho = () => {
           <Nav className="me-auto">
             <Nav.Link href="/cars/">Cars</Nav.Link>
             <Nav.Link href="/movies/popularFilmes/">Movies</Nav.Link>
+            <Nav.Link href="/form/">Form</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
