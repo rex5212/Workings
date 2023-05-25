@@ -10,6 +10,6 @@ Excel, PowerBI, Hardware (Limpe, Manutença, Montagem e especificações tecnica
 Cozinheiro, sabe um pouco sobre Mecanica (de Automovel), energia (corrente eletrica/Fiação), Física (para utiliza em construção e por apender mesmo), vê um pouco de quimica e biologia, 
 
 ## Objetivos Alcançados que possui Repositorio Propio: 
-AdonisJS, JavaScript, Java, C, C++, GitHub
+AdonisJS, JavaScript, Java, C, C++, GitHub, Next
 
 https://www.db-fiddle.com/f/85ooYFjxH8UWpP8eKup41G/1
