@@ -26,7 +26,7 @@ const id = () => {
 
     function salvar(dados){
         const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-        cursos.push(dados)
+        cursos.splice(query.id, 1, dados)
         window.localStorage.setItem('cursos', JSON.stringify(cursos))
         push("/form")
     }
