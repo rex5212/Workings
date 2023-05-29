@@ -3,11 +3,12 @@ import { Button, Form } from 'react-bootstrap'
 import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
-import Link from 'next/link'
+import { db, set, ref } from "../../services/firebase"
+import {v4} from "uuid"
 
 const index = () => {
 
-    const { push } = useRouter()
+    const { push, query } = useRouter()
 
     const { register, handleSubmit } = useForm()
 
@@ -15,13 +16,15 @@ const index = () => {
         const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
         cursos.push(dados)
         window.localStorage.setItem('cursos', JSON.stringify(cursos))
+        const id = v4(dados)
+        set(ref(db, 'dados/' + id), {
+            name: dados.name,
+            password: dados.password,
+            modalidade : dados.modalidade
+        });
         push("/form")
     }
 
-    // function login(){
-    //     <Link href="/form"></Link>
-    // }
-    
 
     return (
         <BasePage>

@@ -24,16 +24,12 @@ const id = () => {
 
     }, [query.id])
 
-    function salvar(dados){
+    function modificar(dados){
         const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
         cursos.splice(query.id, 1, dados)
         window.localStorage.setItem('cursos', JSON.stringify(cursos))
         push("/form")
     }
-
-    // function login(){
-    //     <Link href="/form"></Link>
-    // }
     
 
     return (
@@ -52,7 +48,7 @@ const id = () => {
                     <Form.Control type="text" placeholder="Modalidade" {...register('modalidade')}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={handleSubmit(salvar/*, login*/)}>
+                <Button variant="primary" type="submit" onClick={handleSubmit(modificar)}>
                     Salvar
                 </Button>
             </Form>
