@@ -27,6 +27,7 @@ const index = ({filmes}) => {
 
 
   console.log(filmes)
+
   return (
     <BasePage mainTitle="Movies">
       <Row md={4}>
