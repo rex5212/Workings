@@ -13,15 +13,17 @@ const index = () => {
     const { register, handleSubmit } = useForm()
 
     function salvar(dados){
-        const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-        cursos.push(dados)
-        window.localStorage.setItem('cursos', JSON.stringify(cursos))
+        // const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
+        // cursos.push(dados)
+        // window.localStorage.setItem('cursos', JSON.stringify(cursos))
         const id = v4(dados)
-        set(ref(db, 'dados/' + id), {
+        set(ref(db, 'base/dados' + id), {
             name: dados.name,
             password: dados.password,
-            modalidade : dados.modalidade
+            modalidade : dados.modalidade,
+            id : id
         });
+
         push("/form")
     }
 

@@ -1,5 +1,7 @@
 import { initializeApp, getApp } from "firebase/app";
-import { getDatabase, set, ref } from "firebase/database";
+import { getDatabase, set, ref, child, get, push, update, onValue, remove } from "firebase/database";
+import { getAuth } from "firebase/auth";
+
 
 let app
 
@@ -33,4 +35,4 @@ try {
 
 const db = getDatabase(app)
 
-export { db, set, ref }
+export { db, set, ref, child, get, push, update, getAuth, onValue, remove }

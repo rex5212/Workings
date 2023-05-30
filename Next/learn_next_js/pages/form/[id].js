@@ -4,6 +4,8 @@ import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import Link from 'next/link'
+import { db, set, ref, update } from "../../services/firebase"
+
 
 const id = () => {
 
@@ -24,12 +26,29 @@ const id = () => {
 
     }, [query.id])
 
-    function modificar(dados){
-        const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-        cursos.splice(query.id, 1, dados)
-        window.localStorage.setItem('cursos', JSON.stringify(cursos))
-        push("/form")
-    }
+    // function modificar(dados){
+    //     const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
+    //     cursos.splice(query.id, 1, dados)
+    //     window.localStorage.setItem('cursos', JSON.stringify(cursos))
+    //     push("/form")
+    // }
+
+    function modificar(dados) {      
+
+        const dataKeys = push(child(ref(db), 'dados')).key;
+
+        const newData = {
+            name: dados.name,
+            madalidade: dados.modalidade,
+            password: dados.password,
+            id: dados.id
+        };
+      
+        const updates = {};
+        updates['/dados/' + dataKeys] = postData;
+      
+        return update(ref(db), newData);
+      }
     
 
     return (
