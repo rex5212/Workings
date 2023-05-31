@@ -3,8 +3,11 @@ import { Button, Form } from 'react-bootstrap'
 import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
-import { db, set, ref } from "../../services/firebase"
+import { db } from "../../services/firebase"
 import {v4} from "uuid"
+import axios from "axios";
+import { ref, set } from 'firebase/database'
+
 
 const index = () => {
 
@@ -16,13 +19,8 @@ const index = () => {
         // const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
         // cursos.push(dados)
         // window.localStorage.setItem('cursos', JSON.stringify(cursos))
-        const id = v4(dados)
-        set(ref(db, 'base/dados' + id), {
-            name: dados.name,
-            password: dados.password,
-            modalidade : dados.modalidade,
-            id : id
-        });
+
+        axios.post("/api/disciplinas", dados)
 
         push("/form")
     }
@@ -33,15 +31,15 @@ const index = () => {
             <Form>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="user name" {...register('name')}/>
+                    <Form.Control type="text" placeholder="name" {...register('name')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" {...register('password')}/>
+                <Form.Group className="mb-3" controlId="duration">
+                    <Form.Label>Duration</Form.Label>
+                    <Form.Control type="duration" placeholder="Duration" {...register('duration')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="modalidade">
-                    <Form.Label>Modalidade</Form.Label>
-                    <Form.Control type="text" placeholder="Modalidade" {...register('modalidade')}/>
+                <Form.Group className="mb-3" controlId="modality">
+                    <Form.Label>Modality</Form.Label>
+                    <Form.Control type="text" placeholder="Modality" {...register('modality')}/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={handleSubmit(salvar/*, login*/)}>

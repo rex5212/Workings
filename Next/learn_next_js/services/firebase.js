@@ -35,4 +35,4 @@ try {
 
 const db = getDatabase(app)
 
-export { db, set, ref, child, get, push, update, getAuth, onValue, remove }
+export { db }

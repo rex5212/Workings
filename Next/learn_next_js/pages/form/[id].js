@@ -4,7 +4,7 @@ import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import Link from 'next/link'
-import { db, set, ref, update } from "../../services/firebase"
+import { db } from "../../services/firebase"
 
 
 const id = () => {
@@ -39,8 +39,8 @@ const id = () => {
 
         const newData = {
             name: dados.name,
-            madalidade: dados.modalidade,
-            password: dados.password,
+            modality: dados.modality,
+            duration: dados.duration,
             id: dados.id
         };
       

@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
 import { HiPencil } from "react-icons/hi"
 // import Router from 'next/router';
-import { db, get, ref, child, remove } from "../../services/firebase"
+import { db } from "../../services/firebase"
 import Button from 'react-bootstrap/Button';
+import { child, get, ref, remove } from 'firebase/database';
+import axios from 'axios';
 
 
 const index = () => {
@@ -15,27 +17,19 @@ const index = () => {
 
     useEffect(() => {
         // const datalocal = JSON.parse(localStorage.getItem('cursos'));
-
-        const dbRef = ref(db);
-            get(child(dbRef, `/dados`)).then((Date) => {
-                if (Date.exists()) {
-                  console.log([Date.val()]);
-                } else {
-                  console.log("No data available");
-                }
-              }).catch((error) => {
-                console.error(error);
-              });
+        axios.get("/api/disciplinas").then(resultado=>{
+            setData(resultado.data)
+        })
     }, [])
 
     console.log(data)
 
-    function excluir(date) {
+    function excluir(item) {
         if (confirm("Deseja Mesmo excluir essa informação")) {
-            remove(date.id)
+            axios.delete("api/disciplinas", item)
+
             // localStorage.setItem('cursos', JSON.stringify(data))
             // let newData = JSON.parse(localStorage.getItem('cursos'))
-            setData(newData)
         }
 
         // data.splice(linha,1)
@@ -50,8 +44,8 @@ const index = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Passoword</th>
-                        <th>Modalidade</th>
+                        <th>Duration</th>
+                        <th>Modality</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,8 +54,8 @@ const index = () => {
                             <th><Link href={`/form/${i}`}><HiPencil /></Link></th>
                             <th><FiXCircle onClick={() => excluir(item)} /></th>
                             <th>{item.name}</th>
-                            <th>{item.password}</th>
-                            <th>{item.modalidade}</th>
+                            <th>{item.duration}</th>
+                            <th>{item.modality}</th>
                         </tr>
                     )) : ""}
                 </tbody>
