@@ -28,13 +28,20 @@ export default function handler(req, res) {
 
         const dados = req.body
 
-        console.log(dados.id)
+        console.log(dados)
+
+        get(child(ref(db), 'disciplinas')).then(snapshot=>{
+            const retorno = []
+            snapshot.forEach(item => {
+                retorno.push(item.val())
+                console.log(retorno)
+            });
+        })
+
 
         const tasksRef = ref(db, `disciplinas/${dados.id}`);
 
-        remove(tasksRef).then(() => {
-            console.log(dados);
-        });
+        remove(tasksRef).then((snapshot) => {});
 
     }
 
