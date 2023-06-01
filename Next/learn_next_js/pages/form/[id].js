@@ -1,70 +1,52 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
-import Link from 'next/link'
-import { db } from "../../services/firebase"
+import axios from 'axios'
 
 
 const id = () => {
 
     const { push, query } = useRouter()
-
     const { register, handleSubmit, setValue } = useForm()
 
     useEffect(() => {
 
-        if(query.id){
-            const cursos = JSON.parse(localStorage.getItem('cursos')) || []
-            const Curso = cursos[query.id]
-    
-            setValue("name", Curso.name)
-            setValue("password", Curso.password)
-            setValue("modalidade", Curso.modalidade)
-        }
+        if (query.id) {
+            axios.get("/api/disciplinas/" + query.id).then(resultado=>{
+                const objectData = resultado.data
+                console.log(objectData)
 
+                for(let atributo in objectData){
+                    setValue(atributo, objectData[atributo])
+                }
+            })
+        
+        }
     }, [query.id])
 
-    // function modificar(dados){
-    //     const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-    //     cursos.splice(query.id, 1, dados)
-    //     window.localStorage.setItem('cursos', JSON.stringify(cursos))
-    //     push("/form")
-    // }
+    function modificar(dados){
+        axios.put("/api/disciplinas/" + dados.id, dados)
+        // push("/form")
+    }
 
-    function modificar(dados) {      
 
-        const dataKeys = push(child(ref(db), 'dados')).key;
-
-        const newData = {
-            name: dados.name,
-            modality: dados.modality,
-            duration: dados.duration,
-            id: dados.id
-        };
-      
-        const updates = {};
-        updates['/dados/' + dataKeys] = postData;
-      
-        return update(ref(db), newData);
-      }
-    
 
     return (
         <BasePage>
             <Form>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="user name" {...register('name')}/>
+                    <Form.Control type="text" {...register('name')} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" {...register('password')}/>
+                <Form.Group className="mb-3" controlId="duration">
+                    <Form.Label>Duration</Form.Label>
+                    <Form.Control type="duration" {...register('duration')} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="modalidade">
-                    <Form.Label>Modalidade</Form.Label>
-                    <Form.Control type="text" placeholder="Modalidade" {...register('modalidade')}/>
+                <Form.Group className="mb-3" controlId="modality">
+                    <Form.Label>Modality</Form.Label>
+                    <Form.Control type="text"  {...register('modality')} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={handleSubmit(modificar)}>

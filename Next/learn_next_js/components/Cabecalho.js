@@ -1,3 +1,4 @@
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
 import { Nav, Navbar, Container } from 'react-bootstrap';
 

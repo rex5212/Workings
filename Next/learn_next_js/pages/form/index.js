@@ -5,9 +5,6 @@ import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
 import { HiPencil } from "react-icons/hi"
 // import Router from 'next/router';
-import { db } from "../../services/firebase"
-import Button from 'react-bootstrap/Button';
-import { child, get, ref, remove } from 'firebase/database';
 import axios from 'axios';
 
 
@@ -24,9 +21,9 @@ const index = () => {
 
     console.log(data)
 
-    function excluir(item) {
+    function excluir(id) {
         if (confirm("Deseja Mesmo excluir essa informação")) {
-            axios.delete("api/disciplinas", item)
+            axios.delete("/api/disciplinas/" + id)
 
             // localStorage.setItem('cursos', JSON.stringify(data))
             // let newData = JSON.parse(localStorage.getItem('cursos'))
@@ -49,10 +46,10 @@ const index = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data ? data.map((item, i) => (
-                        <tr>
-                            <th><Link href={`/form/${i}`}><HiPencil /></Link></th>
-                            <th><FiXCircle onClick={() => excluir(item)} /></th>
+                    {data ? data.map((item) => (
+                        <tr key={item.id}>
+                            <th><Link href={`/form/${item.id}`}><HiPencil /></Link></th>
+                            <th><FiXCircle onClick={() => excluir(item.id)} /></th>
                             <th>{item.name}</th>
                             <th>{item.duration}</th>
                             <th>{item.modality}</th>
