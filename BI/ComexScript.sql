@@ -46,7 +46,13 @@ CREATE TABLE fato_exportacao(
     sk_ncm INT NULL,
     qt_stat INT,
     kg_liquido DOUBLE,
-    vl_fob DOUBLE
+    vl_fob DOUBLE,
+    
+    FOREIGN KEY (sk_via) REFERENCES dim_via (sk_via),
+    FOREIGN KEY (sk_pais) REFERENCES dim_paises (sk_pais),
+    FOREIGN KEY (sk_unidade) REFERENCES dim_unidade (sk_unidade),
+    FOREIGN KEY (sk_urf) REFERENCES dim_urf (sk_urf),
+    FOREIGN KEY (sk_ncm) REFERENCES dim_ncm (sk_ncm)
 );
 
 CREATE TABLE fato_importacao(
@@ -60,50 +66,18 @@ CREATE TABLE fato_importacao(
     kg_liquido DOUBLE,
     vl_fob DOUBLE,
     vl_frete DOUBLE,
-    vl_seguro DOUBLE
+    vl_seguro DOUBLE,
+    
+    FOREIGN KEY (sk_via) REFERENCES dim_via (sk_via),
+    FOREIGN KEY (sk_pais) REFERENCES dim_paises (sk_pais),
+    FOREIGN KEY (sk_unidade) REFERENCES dim_unidade (sk_unidade),
+    FOREIGN KEY (sk_urf) REFERENCES dim_urf (sk_urf),
+    FOREIGN KEY (sk_ncm) REFERENCES dim_ncm (sk_ncm)
 );
 
-ALTER TABLE fato_exportacao
-ADD CONSTRAINT FOREIGN KEY fato_via_fk (sk_via)
-REFERENCES dim_via (sk_via);
-
-ALTER TABLE fato_exportacao 
-ADD CONSTRAINT FOREIGN KEY fato_pais_fk (sk_pais)
-REFERENCES dim_paises (sk_pais);
-
-ALTER TABLE fato_exportacao 
-ADD CONSTRAINT FOREIGN KEY fato_unidade_fk (sk_unidade)
-REFERENCES dim_unidade (sk_unidade);
-
-ALTER TABLE fato_exportacao 
-ADD CONSTRAINT FOREIGN KEY fato_urf_fk (sk_urf)
-REFERENCES dim_urf (sk_urf);
-
-ALTER TABLE fato_exportacao
-ADD CONSTRAINT FOREIGN KEY fato_ncm_fk (sk_ncm)
-REFERENCES dim_ncm (sk_ncm);
-
----
-
-ALTER TABLE fato_importacao
-ADD CONSTRAINT FOREIGN KEY fato_via_fk (sk_via)
-REFERENCES dim_via (sk_via);
-
-ALTER TABLE fato_importacao 
-ADD CONSTRAINT FOREIGN KEY fato_pais_fk (sk_pais)
-REFERENCES dim_paises (sk_pais);
-
-ALTER TABLE fato_importacao 
-ADD CONSTRAINT FOREIGN KEY fato_unidade_fk (sk_unidade)
-REFERENCES dim_unidade (sk_unidade);
-
-ALTER TABLE fato_importacao 
-ADD CONSTRAINT FOREIGN KEY fato_urf_fk (sk_urf)
-REFERENCES dim_urf (sk_urf);
-
-ALTER TABLE fato_importacao
-ADD CONSTRAINT FOREIGN KEY fato_ncm_fk (sk_ncm)
-REFERENCES dim_ncm (sk_ncm);
+-- ALTER TABLE fato_exportacao
+-- ADD CONSTRAINT FOREIGN KEY fato_via_fk (sk_via)
+-- REFERENCES dim_via (sk_via);
 
 CREATE TABLE dim_tempo(
 	sk_tempo INT AUTO_INCREMENT PRIMARY KEY,
@@ -111,8 +85,26 @@ CREATE TABLE dim_tempo(
     mes INT
 );
 
+-- DROP DATABASE comex;
+-- DESCRIBE exp_2021;
 
---- DROP DATABASE comex;
+SELECT * FROM exp_2021;
+ 
+ SELECT * 
+    FROM exp_2021
+WHERE co_ano = 2021;
 
-INSERT INTO dim_via (sk_via, nome_via)
-VALUES(CO_VIA, NO_VIA);
+
+-- converte texto para números inteiros
+SELECT CAST(co_ano AS SIGNED) AS ano
+FROM exp_2021;
+
+-- converte texte para número decimal
+SELECT CAST(co_mes AS SIGNED) AS mes
+FROM exp_2021;
+
+SELECT CONCAT(CAST(co_ano AS SIGNED),  CAST(co_mes AS SIGNED)) AS AnoMes
+  FROM exp_2021
+ORDER BY AnoMes;
+
+-- SELECT * FROM dim_tempo;
