@@ -18,15 +18,7 @@ try {
     //     appId: process.env.FIREBASE_APP_ID
     //   };
     
-    const firebaseConfig = {
-        apiKey: "AIzaSyDrYpNPD5_a_I7IqU-TbPWSZL1sNyHFoTg",
-        authDomain: "facultbase.firebaseapp.com",
-        databaseURL: "https://facultbase-default-rtdb.firebaseio.com",
-        projectId: "facultbase",
-        storageBucket: "facultbase.appspot.com",
-        messagingSenderId: "1096619820940",
-        appId: "1:1096619820940:web:035bff037af4b31703f8a9"
-      }; 
+
 
     //   console.log(firebaseConfig)
       
