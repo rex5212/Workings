@@ -3,10 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
-import { db } from "../../services/firebase"
-import {v4} from "uuid"
 import axios from "axios";
-import { ref, set } from 'firebase/database'
 
 
 const index = () => {
@@ -20,7 +17,7 @@ const index = () => {
         // cursos.push(dados)
         // window.localStorage.setItem('cursos', JSON.stringify(cursos))
 
-        axios.post("/api/disciplinas", dados)
+        axios.post("/api/sala", dados)
 
         push("/form")
     }
@@ -33,13 +30,13 @@ const index = () => {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="name" {...register('name')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="duration">
-                    <Form.Label>Duration</Form.Label>
-                    <Form.Control type="duration" placeholder="Duration" {...register('duration')}/>
+                <Form.Group className="mb-3" controlId="capacity">
+                    <Form.Label>Capacity</Form.Label>
+                    <Form.Control type="capacity" placeholder="Capacity" {...register('capacity')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="modality">
-                    <Form.Label>Modality</Form.Label>
-                    <Form.Control type="text" placeholder="Modality" {...register('modality')}/>
+                <Form.Group className="mb-3" controlId="type">
+                    <Form.Label>Type</Form.Label>
+                    <Form.Control type="text" placeholder="Type" {...register('type')}/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={handleSubmit(salvar/*, login*/)}>
