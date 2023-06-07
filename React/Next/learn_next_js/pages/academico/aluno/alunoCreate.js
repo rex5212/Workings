@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 import BasePage from '../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
+import {v4 as uuid} from "uuid"
 import axios from "axios";
 
 
@@ -25,9 +26,6 @@ const index = () => {
     return (
         <BasePage>
             <Form>
-                <Form.Group className="mb-3" controlId="id">
-                    <Form.Control type="text" {...register('id')}/>
-                </Form.Group>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="name" {...register('name')}/>

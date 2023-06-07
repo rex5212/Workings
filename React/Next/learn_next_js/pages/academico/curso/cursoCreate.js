@@ -26,16 +26,13 @@ const index = () => {
     return (
         <BasePage>
             <Form>
-                <Form.Group className="mb-3" controlId="id">
-                    <Form.Control type="text" {...register('id')}/>
-                </Form.Group>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="name" {...register('name')}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="duration">
                     <Form.Label>Duration</Form.Label>
-                    <Form.Control type="duration" placeholder="Duration" {...register('duration')}/>
+                    <Form.Control type="number" placeholder="Duration" {...register('duration')}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="modality">
                     <Form.Label>Modality</Form.Label>

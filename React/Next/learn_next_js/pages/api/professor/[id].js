@@ -7,13 +7,13 @@ export default function handler(req, res) {
 
     if (req.method == "DELETE") {
 
-        remove(ref(db, `disciplinas/${id}`))
+        remove(ref(db, `school/professores/${id}`))
 
     } else if (req.method == "PUT" || req.method == "PATCH") { 
 
         const dados = req.body
 
-        update(ref(db, "/api/disciplinas/" + id), dados)    
+        update(ref(db, "school/professores/" + id), dados)    
         res.status(200).json(dados)
 
         // // const dataKeys = push(child(ref(db), `disciplinas/${id}`)).key;

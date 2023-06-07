@@ -19,16 +19,13 @@ const index = () => {
 
         axios.post("/api/professor", dados)
 
-        push("/form")
+        push("/academico/professor/professorList")
     }
 
 
     return (
         <BasePage>
             <Form>
-            <Form.Group className="mb-3" controlId="id">
-                    <Form.Control type="text" {...register('id')}/>
-                </Form.Group>
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="name" {...register('name')}/>
