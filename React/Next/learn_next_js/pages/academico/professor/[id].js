@@ -14,7 +14,7 @@ const id = () => {
     useEffect(() => {
 
         if (query.id) {
-            axios.get("/api/disciplinas/" + query.id).then(resultado=>{
+            axios.get("/api/professor/" + query.id).then(resultado=>{
                 const objectData = resultado.data
                 console.log(objectData)
 
@@ -27,7 +27,7 @@ const id = () => {
     }, [query.id])
 
     function modificar(dados){
-        axios.put("/api/disciplinas/" + dados.id, dados)
+        axios.put("/api/professor/" + dados.id, dados)
         // push("/form")
     }
 
@@ -36,17 +36,49 @@ const id = () => {
     return (
         <BasePage>
             <Form>
-                <Form.Group className="mb-3" controlId="name">
+            <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" {...register('name')} />
+                    <Form.Control type="text" {...register('name')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="duration">
-                    <Form.Label>Duration</Form.Label>
-                    <Form.Control type="duration" {...register('duration')} />
+                <Form.Group className="mb-3" controlId="cpf">
+                    <Form.Label>Cpf</Form.Label>
+                    <Form.Control type="text" {...register('cpf')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="modality">
-                    <Form.Label>Modality</Form.Label>
-                    <Form.Control type="text"  {...register('modality')} />
+                <Form.Group className="mb-3" controlId="registration">
+                    <Form.Label>Registration</Form.Label>
+                    <Form.Control type="text" {...register('registration')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="email">
+                    <Form.Label>E-mail</Form.Label>
+                    <Form.Control type="text" {...register('email')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="wage">
+                    <Form.Label>Wage</Form.Label>
+                    <Form.Control type="text" {...register('wage')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="cellphone">
+                    <Form.Label>Cellphone</Form.Label>
+                    <Form.Control type="text" {...register('cellphone')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="cep">
+                    <Form.Label>Cep</Form.Label>
+                    <Form.Control type="text" {...register('cep')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="publicPlace">
+                    <Form.Label>Public place</Form.Label>
+                    <Form.Control type="text" {...register('publicPlace')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="complement">
+                    <Form.Label>Complement</Form.Label>
+                    <Form.Control type="text" {...register('complement')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="number">
+                    <Form.Label>Number</Form.Label>
+                    <Form.Control type="text" {...register('number')}/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="neighborhood">
+                    <Form.Label>Neighborhood</Form.Label>
+                    <Form.Control type="text" {...register('neighborhood')}/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={handleSubmit(modificar)}>

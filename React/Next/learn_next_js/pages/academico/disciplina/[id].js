@@ -14,7 +14,7 @@ const id = () => {
     useEffect(() => {
 
         if (query.id) {
-            axios.get("/api/disciplinas/" + query.id).then(resultado=>{
+            axios.get("/api/disciplina/" + query.id).then(resultado=>{
                 const objectData = resultado.data
                 console.log(objectData)
 
@@ -27,7 +27,7 @@ const id = () => {
     }, [query.id])
 
     function modificar(dados){
-        axios.put("/api/disciplinas/" + dados.id, dados)
+        axios.put("/api/disciplina/" + dados.id, dados)
         // push("/form")
     }
 
@@ -39,10 +39,6 @@ const id = () => {
                 <Form.Group className="mb-3" controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" {...register('name')} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="duration">
-                    <Form.Label>Duration</Form.Label>
-                    <Form.Control type="duration" {...register('duration')} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="modality">
                     <Form.Label>Modality</Form.Label>

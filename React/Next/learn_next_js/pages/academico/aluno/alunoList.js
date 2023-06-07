@@ -14,7 +14,7 @@ const index = () => {
 
     useEffect(() => {
         // const datalocal = JSON.parse(localStorage.getItem('cursos'));
-        axios.get("/api/disciplinas").then(resultado=>{
+        axios.get("/api/aluno").then(resultado=>{
             setData(resultado.data)
         })
     }, [])
@@ -23,7 +23,7 @@ const index = () => {
 
     function excluir(id) {
         if (confirm("Deseja Mesmo excluir essa informação")) {
-            axios.delete("/api/disciplinas/" + id)
+            axios.delete("/api/aluno/" + id)
 
             // localStorage.setItem('cursos', JSON.stringify(data))
             // let newData = JSON.parse(localStorage.getItem('cursos'))
@@ -41,23 +41,37 @@ const index = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Duration</th>
-                        <th>Modality</th>
+                        <th>cpf</th>
+                        <th>registration</th>
+                        <th>email</th>
+                        <th>cellphone</th>
+                        <th>cep</th>
+                        <th>publicPlace</th>
+                        <th>complement</th>
+                        <th>number</th>
+                        <th>neighborhood</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data ? data.map((item) => (
                         <tr key={item.id}>
-                            <th><Link href={`/form/${item.id}`}><HiPencil /></Link></th>
+                            <th><Link href={`/academico/aluno/${item.id}`}><HiPencil /></Link></th>
                             <th><FiXCircle onClick={() => excluir(item.id)} /></th>
                             <th>{item.name}</th>
-                            <th>{item.duration}</th>
-                            <th>{item.modality}</th>
+                            <th>{item.cpf}</th>
+                            <th>{item.registration}</th>
+                            <th>{item.email}</th>
+                            <th>{item.cellphone}</th>
+                            <th>{item.cep}</th>
+                            <th>{item.publicPlace}</th>
+                            <th>{item.complement}</th>
+                            <th>{item.number}</th>
+                            <th>{item.neighborhood}</th>
                         </tr>
                     )) : ""}
                 </tbody>
             </Table>
-            <Link href="/form/forms" className='btn btn-success'>Novo</Link>
+            <Link href="/academico/aluno/alunoCreate" className='btn btn-success'>Novo</Link>
         </BasePage>
     )
 }

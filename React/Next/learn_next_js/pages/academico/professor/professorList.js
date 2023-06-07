@@ -14,7 +14,7 @@ const index = () => {
 
     useEffect(() => {
         // const datalocal = JSON.parse(localStorage.getItem('cursos'));
-        axios.get("/api/disciplinas").then(resultado=>{
+        axios.get("/api/professor").then(resultado=>{
             setData(resultado.data)
         })
     }, [])
@@ -23,7 +23,7 @@ const index = () => {
 
     function excluir(id) {
         if (confirm("Deseja Mesmo excluir essa informação")) {
-            axios.delete("/api/disciplinas/" + id)
+            axios.delete("/api/professor/" + id)
 
             // localStorage.setItem('cursos', JSON.stringify(data))
             // let newData = JSON.parse(localStorage.getItem('cursos'))
@@ -41,8 +41,7 @@ const index = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Duration</th>
-                        <th>Modality</th>
+                        <th>Curso</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,13 +50,12 @@ const index = () => {
                             <th><Link href={`/form/${item.id}`}><HiPencil /></Link></th>
                             <th><FiXCircle onClick={() => excluir(item.id)} /></th>
                             <th>{item.name}</th>
-                            <th>{item.duration}</th>
-                            <th>{item.modality}</th>
+                            <th>{item.curso_id}</th>
                         </tr>
                     )) : ""}
                 </tbody>
             </Table>
-            <Link href="/form/forms" className='btn btn-success'>Novo</Link>
+            <Link href="/academico/professor/professorCreate" className='btn btn-success'>Novo</Link>
         </BasePage>
     )
 }

@@ -17,9 +17,8 @@ const index = () => {
         // cursos.push(dados)
         // window.localStorage.setItem('cursos', JSON.stringify(cursos))
 
-        axios.post("/api/disciplinas", dados)
-
-        push("/form")
+        axios.post("/api/disciplina", dados)
+        push("/academico/disciplina/disciplinaList")
     }
 
 
@@ -30,13 +29,9 @@ const index = () => {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="name" {...register('name')}/>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="duration">
-                    <Form.Label>Duration</Form.Label>
-                    <Form.Control type="duration" placeholder="Duration" {...register('duration')}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="modality">
-                    <Form.Label>Modality</Form.Label>
-                    <Form.Control type="text" placeholder="Modality" {...register('modality')}/>
+                <Form.Group className="mb-3" controlId="cursoid">
+                    <Form.Label>Curso</Form.Label>
+                    <Form.Control type="text" placeholder="CursoId" {...register('cursoid')}/>
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={handleSubmit(salvar/*, login*/)}>
