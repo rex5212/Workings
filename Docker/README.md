@@ -43,3 +43,6 @@
 
 ### Exist one file like gitgnore
     touch .dockerignore
+
+# Write for show what's commands is possible
+    docker --help
