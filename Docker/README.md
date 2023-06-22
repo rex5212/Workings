@@ -6,12 +6,12 @@
     touch Dockerfile
 ### put into he the basic form 
 
-    FROM # the image from you project, exemple, if i code in python the img is python
-    WORKDIR # The Docker transform from this file|folder
-    COPY # Say whats files|folder must be in you docker img
-    RUN # what the command start together in the docker build
-    CMD # whats commands in do after the container is create
-    EXPOSE # the Port run you docker aplication
+    FROM node:latest # Basic image from you project, exemple, if i code in node the img is node
+    WORKDIR <file> # The Docker transform from this file|folder
+    COPY <src> <dest> # Say were and whats files|folder must be in you docker img
+    RUN <command> # what command start together in the docker build
+    CMD <command> | <["command"]> # whats commands in do after the container is create
+    EXPOSE <port> # the Port run you docker aplication
 
 ### After this create the img for you code
  
@@ -36,7 +36,7 @@
     docker rm idConteiner|idImg
 
 ### to push to docker hub
-   docker push tag:imgname
+    docker push tag:imgname
 
 ### Obs: If you want to change the tag name
     docker tag imgName newTag/ImgName
