@@ -1,9 +1,9 @@
 # Workings
 
 ### Objetivos: 
-Nodejs, Adonisjs e Git_Hub, JavaScript, TypeScript, Python, Klotin, Fluter(Dart), ionic, React Native, HTML Full (Html, CSS, Boostrap, ...), pivotaltracker, Slack ,machine Learning, Java, C, C++, C#, SO (principalmente Linux), Lógica de Programação (com calculo e formas para melhora minha interpetação e solução de problemas), Ingles, 
+Nodejs, Adonisjs e Git_Hub, JavaScript, TypeScript, Python, Klotin, Fluter(Dart), ionic, React Native, HTML Full (Html, CSS, Boostrap, ...), pivotaltracker, Slack ,machine Learning, Java, C, C++, C#, SO (principalmente Linux), Lógica de Programação (com calculo e formas para melhora minha interpetação e solução de problemas), Ingles, Duckdb
 
-# !!!!! Docker, Apache Parquet, GOlang, Postgres, Duckdb !!!!!.
+# !!!!! Docker, Apache Parquet, GOlang, Postgres !!!!!.
 
 
 ### Gerenciado de Projetos
