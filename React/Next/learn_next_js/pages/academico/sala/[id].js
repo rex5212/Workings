@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axios from 'axios'
@@ -14,7 +14,7 @@ const id = () => {
     useEffect(() => {
 
         if (query.id) {
-            axios.get("/api/disciplinas/" + query.id).then(resultado=>{
+            axios.get("/api/sala/" + query.id).then(resultado=>{
                 const objectData = resultado.data
                 console.log(objectData)
 
@@ -27,8 +27,8 @@ const id = () => {
     }, [query.id])
 
     function modificar(dados){
-        axios.put("/api/disciplinas/" + dados.id, dados)
-        // push("/form")
+        axios.put("/api/sala/" + dados.id, dados)
+        push("/academico/sala/salaList")
     }
 
 

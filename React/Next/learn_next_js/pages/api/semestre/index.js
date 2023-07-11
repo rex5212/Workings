@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
     if (req.method == "GET") {
 
-        get(child(ref(db), 'disciplinas')).then(snapshot => {
+        get(child(ref(db), 'school/semestres')).then(snapshot => {
             const retorno = []
             snapshot.forEach(item => {
                 retorno.push(item.val())
@@ -20,7 +20,7 @@ export default function handler(req, res) {
         const dados = req.body
         const id = v4(dados)
         dados.id = id
-        set(ref(db, `disciplinas/${id}`), dados);
+        set(ref(db, `school/semestres/${id}`), dados);
 
         // const auth = getAuth();
         // createUserWithEmailAndPassword(auth, email, password)

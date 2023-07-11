@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
@@ -57,7 +57,7 @@ const index = () => {
                     )) : ""}
                 </tbody>
             </Table>
-            <Link href="/form/forms" className='btn btn-success'>Novo</Link>
+            <Link href="/academico/curso/cursoCreate" className='btn btn-success'>Novo</Link>
         </BasePage>
     )
 }

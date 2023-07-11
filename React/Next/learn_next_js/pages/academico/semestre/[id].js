@@ -14,7 +14,7 @@ const id = () => {
     useEffect(() => {
 
         if (query.id) {
-            axios.get("/api/disciplinas/" + query.id).then(resultado=>{
+            axios.get("/api/semestre/" + query.id).then(resultado=>{
                 const objectData = resultado.data
                 console.log(objectData)
 
@@ -27,8 +27,8 @@ const id = () => {
     }, [query.id])
 
     function modificar(dados){
-        axios.put("/api/disciplinas/" + dados.id, dados)
-        // push("/form")
+        axios.put("/api/semestre/" + dados.id, dados)
+        push("/academico/semestre/semestreList")
     }
 
 

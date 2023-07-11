@@ -7,14 +7,16 @@ import Licenca from './Licenca';
 const BasePage = (props) => {
   return (
     <>
-        <Cabecalho/>
-        <h2 className='border-bottom border-dark border-3 p-2 w-100 text-center'>{props.title}</h2>
+      <Cabecalho />
+      <h2 className='border-bottom border-dark border-3 p-2 w-100 text-center'>{props.title}</h2>
 
+      <div className='mb-5'>
         <Container>
-            {props.children}
+          {props.children}
         </Container>
+      </div>
 
-        <Licenca/>
+      <Licenca />
     </>
   )
 }

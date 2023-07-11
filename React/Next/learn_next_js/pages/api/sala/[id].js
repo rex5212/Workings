@@ -7,13 +7,13 @@ export default function handler(req, res) {
 
     if (req.method == "DELETE") {
 
-        remove(ref(db, `disciplinas/${id}`))
+        remove(ref(db, `school/salas/${id}`))
 
     } else if (req.method == "PUT" || req.method == "PATCH") { 
 
         const dados = req.body
 
-        update(ref(db, "/api/disciplinas/" + id), dados)    
+        update(ref(db, "school/salas/" + id), dados)    
         res.status(200).json(dados)
 
         // // const dataKeys = push(child(ref(db), `disciplinas/${id}`)).key;
@@ -31,7 +31,7 @@ export default function handler(req, res) {
 
     } else if (req.method == "GET") {
 
-        get(child(ref(db), 'disciplinas/' + id)).then(snapshot => {
+        get(child(ref(db), 'school/salas/' + id)).then(snapshot => {
             res.status(200).json(snapshot)
         })
 

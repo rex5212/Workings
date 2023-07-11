@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axios from 'axios'
@@ -28,7 +28,7 @@ const id = () => {
 
     function modificar(dados) {
         axios.put("/api/aluno/" + dados.id, dados)
-        // push("/form")
+        push("/academico/aluno/alunoList")
     }
 
 
@@ -55,9 +55,9 @@ const id = () => {
                     <Form.Label>E-mail</Form.Label>
                     <Form.Control type="text" {...register('email')} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="cellphone">
-                    <Form.Label>Cellphone</Form.Label>
-                    <Form.Control type="text" {...register('cellphone')} />
+                <Form.Group className="mb-3" controlId="smartphone">
+                    <Form.Label>Smartphone</Form.Label>
+                    <Form.Control type="text" {...register('smartphone')} />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="cep">
                     <Form.Label>Cep</Form.Label>

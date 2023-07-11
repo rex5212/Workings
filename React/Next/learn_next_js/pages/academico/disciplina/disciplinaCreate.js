@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
 import axios from "axios";

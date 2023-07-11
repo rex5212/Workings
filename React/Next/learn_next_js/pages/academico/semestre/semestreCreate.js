@@ -18,8 +18,7 @@ const index = () => {
         // window.localStorage.setItem('cursos', JSON.stringify(cursos))
 
         axios.post("/api/semestre", dados)
-
-        push("/form")
+        push("/academico/semestre/semestreList")
     }
 
 
@@ -39,7 +38,7 @@ const index = () => {
                     <Form.Control type="text" placeholder="DataEnd" {...register('dataend')}/>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={handleSubmit(salvar/*, login*/)}>
+                <Button variant="primary" type="submit" onClick={handleSubmit(salvar)}>
                     Salvar
                 </Button>
             </Form>

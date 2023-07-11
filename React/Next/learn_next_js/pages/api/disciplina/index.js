@@ -6,7 +6,7 @@ export default function handler(req, res) {
 
     if (req.method == "GET") {
 
-        get(child(ref(db), 'school/disciplinas/')).then(snapshot => {
+        get(child(ref(db), 'school/disciplinas')).then(snapshot => {
             const retorno = []
             snapshot.forEach(item => {
                 retorno.push(item.val())

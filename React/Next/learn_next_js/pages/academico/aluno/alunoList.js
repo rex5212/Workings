@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
@@ -40,11 +40,13 @@ const index = () => {
             <Table striped bordered hover className='mb-20'>
                 <thead>
                     <tr>
+                        <th>Edit</th>
+                        <th>Exclude</th>
                         <th>Name</th>
                         <th>cpf</th>
                         <th>registration</th>
                         <th>email</th>
-                        <th>cellphone</th>
+                        <th>Smartphone</th>
                         <th>cep</th>
                         <th>publicPlace</th>
                         <th>complement</th>
@@ -61,7 +63,7 @@ const index = () => {
                             <th>{item.cpf}</th>
                             <th>{item.registration}</th>
                             <th>{item.email}</th>
-                            <th>{item.cellphone}</th>
+                            <th>{item.smartphone}</th>
                             <th>{item.cep}</th>
                             <th>{item.publicPlace}</th>
                             <th>{item.complement}</th>

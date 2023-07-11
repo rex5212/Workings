@@ -31,7 +31,7 @@ export default function handler(req, res) {
 
     } else if (req.method == "GET") {
 
-        get(child(ref(db), 'disciplinas/' + id)).then(snapshot => {
+        get(child(ref(db), 'school/professores/' + id)).then(snapshot => {
             res.status(200).json(snapshot)
         })
 

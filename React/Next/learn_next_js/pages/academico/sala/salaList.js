@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
@@ -14,7 +14,7 @@ const index = () => {
 
     useEffect(() => {
         // const datalocal = JSON.parse(localStorage.getItem('cursos'));
-        axios.get("/api/disciplinas").then(resultado=>{
+        axios.get("/api/sala").then(resultado=>{
             setData(resultado.data)
         })
     }, [])
@@ -23,7 +23,7 @@ const index = () => {
 
     function excluir(id) {
         if (confirm("Deseja Mesmo excluir essa informação")) {
-            axios.delete("/api/disciplinas/" + id)
+            axios.delete("/api/sala/" + id)
 
             // localStorage.setItem('cursos', JSON.stringify(data))
             // let newData = JSON.parse(localStorage.getItem('cursos'))
@@ -48,7 +48,7 @@ const index = () => {
                 <tbody>
                     {data ? data.map((item) => (
                         <tr key={item.id}>
-                            <th><Link href={`/form/${item.id}`}><HiPencil /></Link></th>
+                            <th><Link href={`/academico/sala/${item.id}`}><HiPencil /></Link></th>
                             <th><FiXCircle onClick={() => excluir(item.id)} /></th>
                             <th>{item.name}</th>
                             <th>{item.duration}</th>
@@ -57,7 +57,7 @@ const index = () => {
                     )) : ""}
                 </tbody>
             </Table>
-            <Link href="/form/forms" className='btn btn-success'>Novo</Link>
+            <Link href="/academico/sala/salaCreate" className='btn btn-success'>Novo</Link>
         </BasePage>
     )
 }

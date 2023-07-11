@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import BasePage from '../../components/BasePage'
+import BasePage from '../../../components/BasePage'
 import { Table } from 'react-bootstrap';
 import Link from 'next/link';
 import { FiXCircle } from "react-icons/fi"
@@ -47,7 +47,7 @@ const index = () => {
                 <tbody>
                     {data ? data.map((item) => (
                         <tr key={item.id}>
-                            <th><Link href={`/form/${item.id}`}><HiPencil /></Link></th>
+                            <th><Link href={`/academico/professor/${item.id}`}><HiPencil /></Link></th>
                             <th><FiXCircle onClick={() => excluir(item.id)} /></th>
                             <th>{item.name}</th>
                             <th>{item.curso_id}</th>
