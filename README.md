@@ -1,5 +1,3 @@
-# Workings
-
 # Objetivos: 
 
 ## Objetivos para Iniciar: 
