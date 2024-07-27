@@ -27,30 +27,24 @@ const index = () => {
         const name = event.target.name
         const value = event.target.value
         let Mascara = event.target.getAttribute('mask')
-        if (Mascara == 'name'){
-            
-        } else if (Mascara == 'cpf'){
-            Mascara = '999.999.999-99'
-        } else if (Mascara == 'registration'){
-            '99999999999'
-        } else if (Mascara == 'email'){
-            
-        } else if (Mascara == 'smartphone'){
-            Mascara = ['(99) 9999-9999', '(99) 99999-9999']
-        } else if (Mascara == 'cep'){
-            Mascara = '99-999.999'
-        } else if (Mascara == 'publicPlace'){
-            
-        } else if (Mascara == 'complement'){
-            
-        } else if (Mascara == 'number'){
-            Mascara = ['(99) 99999-9999', '(99) 9999-9999']
-        } else if (Mascara == 'complement'){
-            
-        }
-        console.log(Mascara)
+        // if (Mascara == 'cpf'){
+        //     Mascara = '999.999.999-99'
+        // } else if (Mascara == 'registration'){
+        //     Mascara = '99999999999'
+        // }else if (Mascara == 'smartphone'){
+        //     Mascara = ['(99) 9999-9999', '(99) 99999-9999']
+        // } else if (Mascara == 'cep'){
+        //     Mascara = '99-999.999'
+        // } else if (Mascara == 'number'){
+        //     Mascara = ['(99) 99999-9999', '(99) 9999-9999']
+        // } else {
+        //     Mascara = ''
+        // }
+        // console.log(Mascara)
 
-        setValue(name, mask(unmask(value), Mascara))
+        // if (Mascara != ''){
+        //     setValue(name, mask(unmask(value), Mascara))
+        // }
     }
 
 

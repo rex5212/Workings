@@ -17,5 +17,12 @@
     "react-icons": "^4.8.0",
     "remask": "^1.2.2",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "typescript": "5.3.3"
   }
 }
