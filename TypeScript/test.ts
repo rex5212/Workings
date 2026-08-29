@@ -460,4 +460,150 @@ const findKeyByName = (palette: object, name: string) => {
     return foundKey;
 };
 
-console.log(findKeyByName('Prescritor'));
+// console.log(findKeyByName('Prescritor'));
+
+
+let data = 
+    {
+        "pk": 424,
+        "graph_data": {
+            "session_date": [
+                {
+                    "status": "Intervenção",
+                    "date": "09/07/2024"
+                },
+                {
+                    "status": "Intervenção",
+                    "date": "10/07/2024"
+                },
+                {
+                    "status": "Intervenção",
+                    "date": "11/07/2024"
+                }
+            ],
+            "frequencies": [
+                {
+                    "status": "Intervenção",
+                    "frequency": 1,
+                    "list_frequency": [
+                        {
+                            "date": "09/07/2024",
+                            "time": "12h"
+                        }
+                    ]
+                },
+                {
+                    "status": "Intervenção",
+                    "frequency": 2,
+                    "list_frequency": [
+                        {
+                            "date": "10/07/2024",
+                            "time": "12h20min"
+                        },
+                        {
+                            "date": "10/07/2024",
+                            "time": "15h20min"
+                        }
+                    ]
+                },
+                {
+                    "status": "Intervenção",
+                    "frequency": 2,
+                    "list_frequency": [
+                        {
+                            "date": "11/07/2024",
+                            "time": "12h42min"
+                        },
+                        {
+                            "date": "11/07/2024",
+                            "time": "13h25min"
+                        }
+                    ]
+                }
+            ],
+            "durations": [
+                {
+                    "status": "Intervenção",
+                    "list_duration_second": [
+                        {
+                            "duration": 20,
+                            "date": "09/07/2024",
+                            "time": "12h"
+                        }
+                    ],
+                    "list_duration_minute": [
+                        {
+                            "duration": "20 segundos",
+                            "date": "09/07/2024",
+                            "time": "12h"
+                        }
+                    ],
+                    "duration_second": 20,
+                    "duration_minute": "20 segundos"
+                },
+                {
+                    "status": "Intervenção",
+                    "list_duration_second": [
+                        {
+                            "duration": 34,
+                            "date": "10/07/2024",
+                            "time": "12h20min"
+                        },
+                        {
+                            "duration": 160,
+                            "date": "10/07/2024",
+                            "time": "15h20min"
+                        }
+                    ],
+                    "list_duration_minute": [
+                        {
+                            "duration": "34 segundos",
+                            "date": "10/07/2024",
+                            "time": "12h20min"
+                        },
+                        {
+                            "duration": "2 minutos e 40 segundos",
+                            "date": "10/07/2024",
+                            "time": "15h20min"
+                        }
+                    ],
+                    "duration_second": 194,
+                    "duration_minute": "3 minutos e 14 segundos"
+                },
+                {
+                    "status": "Intervenção",
+                    "list_duration_second": [
+                        {
+                            "duration": 22,
+                            "date": "11/07/2024",
+                            "time": "12h42min"
+                        },
+                        {
+                            "duration": 50,
+                            "date": "11/07/2024",
+                            "time": "13h25min"
+                        }
+                    ],
+                    "list_duration_minute": [
+                        {
+                            "duration": "22 segundos",
+                            "date": "11/07/2024",
+                            "time": "12h42min"
+                        },
+                        {
+                            "duration": "50 segundos",
+                            "date": "11/07/2024",
+                            "time": "13h25min"
+                        }
+                    ],
+                    "duration_second": 72,
+                    "duration_minute": "1 minutos e 12 segundos"
+                }
+            ]
+        }
+    }
+
+
+console.log(data.graph_data?.frequencies.filter(frequency =>
+    frequency.status == 'Intervenção').map((frequency) =>
+    frequency.list_frequency)[0].map(frequency => frequency.time))

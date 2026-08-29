@@ -60,3 +60,4 @@ $ git checkout -b <nome da nova branch>
 touch <arquivo>
 start notepad <arquivo>
 git clone <url> -b <branch>
+git branch --set-upstream-to=<branch>
